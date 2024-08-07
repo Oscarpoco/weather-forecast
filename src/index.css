@@ -1,4 +1,22 @@
-body {
+/* ITEMS THAT I USE GLOBALLY */
+
+:root
+{
+  --neon-pink: #FF6EC7;
+  --dark-black: #000000;
+  --neon-aqua: #00FFFF;
+  --neon-white: #FFFFFF;
+  --neon-blue: #1B03A3;
+  --border-radius: 10px;
+  --box-background: linear-gradient(45deg, var(--neon-pink), var(--neon-aqua));
+  --box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+}
+/* ENDS */
+
+
+/* BODY SETTING */
+body 
+{
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,7 +25,131 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+/* ENDS */
+
+
+/* PARAGRAPH TAG GLOBALLY */
+p
+{
+  font-size: 1.3rem;
+  color: var(--dark-black);
+  font-weight: bold;
+}
+
+/* ENDS */
+
+
+/* HEADING 1 GLOBALLY */
+h1
+{
+  font-size: 6rem;
+  color: var(--neon-white);
+  font-weight: 700;
+}
+/* ENDS */
+
+
+/* APP COMPONENT STYLING */
+.App
+{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  /* background-color: rgba(0,0,0,0.85); */
+  background-color: var(--dark-black);
+}
+
+.App:before
+{
+  content: '';
+  background: url(/public/e2e22d3f-35cd-4ba3-9aee-77d5e0533353.jpeg);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+/* ENDS */
+
+
+/* MAIN STYLING */
+main
+{
+  max-width: 740px;
+  height: 90%;
+  margin: auto;
+  padding: 0 1rem;
+  position: relative;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* TOP CONTAINER INSIDE MAIN */
+.top
+{
+  border-radius: var(--border-radius);
+  background: var(--box-background);
+  width: 100%;
+  margin: 1rem auto;
+  padding: .4em 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* DESCRIPTION INSIDE TOP */
+.description
+{
+  background-color: var(--dark-black);
+  /* background-color: rgba(0,0,0,0.9); */
+  padding: .6rem 0;
+  text-align: center;
+}
+
+.description p
+{
+  color: var(--neon-white);
+}
+
+/* LOCATION INSIDE TOP */
+.location
+{
+  padding: 10px 0 10px 10px;
+}
+/* TOP CONTAINER ENDS */
+
+
+/* BOTTOM CONTAINER INSIDE MAIN */
+.bottom
+{
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: var(--border-radius);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background: var(--box-background);
+  width: 100%;
+  margin: 1rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* WEATHER TITLE */
+
+span
+{
+  color: var(--neon-white);
+  font-weight: lighter;
+}
+
+/* MAIN ENDS */
+
