@@ -118,47 +118,4 @@
     transform: rotate(45deg);
     color: red;
   }
-  /* App.css */
-
-/* Existing styles... */
-
-.hourly, .daily {
-    margin-top: 1em;
-  }
-  
-  .hourly h3, .daily h3 {
-    margin-bottom: 0.5em;
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .hourly .hour, .daily .day {
-    background: #fff;
-    padding: 1em;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 1 0 auto;
-  }
-  
-  .hour {
-    min-width: 80px;
-  }
-  
-  .day {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .weather-icon {
-    font-size: 2rem;
-    display: block;
-  }
-  
-  @media (max-width: 600px) {
-    .hourly, .daily {
-      flex-direction: column;
-    }
-  }
   
