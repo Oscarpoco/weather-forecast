@@ -10,12 +10,27 @@ function App() {
   // USESTATE
   const [data, setData] = useState({});
   const [location, setLocation] = useState('');
+  const [hourly, setHourly] = useState([]);
+  const [daily, setDaily] = useState([]);
   // ENDS
 
-  // WEATHER API URL
+  // WEATHER API URL (Current Weather Data)
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=25160517a2420597ecea94ef0c801eb8&units=metric`;
   // ENDS
 
+  // FETCH ONE CALL API DATA
+  const fetchOneCallData = (lat, lon) => {
+    const oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=25160517a2420597ecea94ef0c801eb8&units=metric`;
+    axios.get(oneCallUrl)
+      .then((response) => {
+        setHourly(response.data.hourly);
+        setDaily(response.data.daily);
+      })
+      .catch((error) => {
+        console.error('Error fetching the hourly and daily data:', error);
+      });
+  };
+  // ENDS
 
   // LOAD WEATHER DATA FROM LOCALSTORAGE
   useEffect(() => {
@@ -40,6 +55,8 @@ function App() {
       axios.get(url)
         .then((response) => {
           setData(response.data);
+          const { lat, lon } = response.data.coord;
+          fetchOneCallData(lat, lon);  // Fetch hourly and daily forecast data
           console.log(response.data);
         })
         .catch((error) => {
@@ -81,6 +98,19 @@ function App() {
   };
   // ENDS
 
+  // FORMAT TIME FOR HOURLY FORECAST
+  const formatTime = (timestamp) => {
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+  // ENDS
+
+  // FORMAT DAY FOR DAILY FORECAST
+  const formatDay = (timestamp) => {
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleDateString([], { weekday: 'long' });
+  };
+  // ENDS
 
   // START OF CONTENT
   return (
@@ -104,9 +134,7 @@ function App() {
       </header>
       {/* ENDS */}
 
-
-
-      {/* CONDITION TO CHECK IF THE THEERE'S NAME IN DATA TO DISPLY, AND IF THE CONDITION IS TRUE , THE CONTENT IS DISPLAYED OTHERWISE IT REMAIN HIDDEN */}
+      {/* CONDITION TO CHECK IF THERE'S NAME IN DATA TO DISPLAY, AND IF THE CONDITION IS TRUE , THE CONTENT IS DISPLAYED OTHERWISE IT REMAIN HIDDEN */}
       {data.name && (
 
         <main>
@@ -140,8 +168,37 @@ function App() {
           {/* MIDDLE CONTAINER */}
           <div className='middle'>
             {data.weather ? getWeatherIcon(data.weather[0].main) : null}
+
+            {/* HOURLY FORECAST */}
+            <div className='hourly'>
+        
+              <div style={{ display: 'flex', overflowX: 'scroll', gap: '1em' }}>
+                {hourly.slice(0, 12).map((hour, index) => (
+                  <div key={index} className='hour'>
+                    <p>{formatTime(hour.dt)}</p>
+                    <p>{Math.round(hour.temp)}°C</p>
+                    {getWeatherIcon(hour.weather[0].main)}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* ENDS */}
+
+            {/* DAILY FORECAST */}
+            <div className='daily'>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}>
+                {daily.slice(0, 7).map((day, index) => (
+                  <div key={index} className='day' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <p>{formatDay(day.dt)}</p>
+                    <p>{Math.round(day.temp.day)}°C</p>
+                    {getWeatherIcon(day.weather[0].main)}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* ENDS */}
           </div>
-          {/* ENDS */}
+          {/* MIDDLE CONTAINER ENDS */}
 
           {/* BOTTOM CONTAINER INSIDE MAIN */}
           <div className='bottom'>
@@ -161,6 +218,7 @@ function App() {
             {/* ENDS */}
 
             {/* WIND INSIDE BOTTOM CONTAINER */}
+            
             <div className='wind' style={{ display: 'flex', flexDirection: 'column', gap: '0.5em' }}>
               <p><span>Wind speed</span></p>
               {data.wind ? <p>{Math.round(data.wind.speed)} mph</p> : null}
