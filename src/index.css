@@ -49,7 +49,7 @@ h1
   font-size: 3rem;
   color: var(--neon-pink);
   font-weight: bolder;
-  padding-left: 35px;
+  padding-left: 34px;
 }
 /* ENDS */
 
@@ -123,7 +123,6 @@ header input
   display: flex;
   justify-content: end;
   align-items: center;
-  /* margin: 0rem auto; */
   height: 35px;
   width: 35px;
   border: none;
@@ -154,7 +153,6 @@ header input
   font-size: 2.5rem;
   cursor: pointer;
 }
-
 /* ENDS */
 
 
@@ -186,7 +184,6 @@ main
 /* DESCRIPTION INSIDE TOP */
 .description
 {
-  /* background-color: var(--dark-black); */
   background-color: rgba(0, 0, 0, 0.825);
   padding: .6rem 0;
   text-align: center;
@@ -200,7 +197,7 @@ main
 /* LOCATION INSIDE TOP */
 .location
 {
-  padding: 0 0 0px 10px;
+  padding: 5px 0 10px 10px;
 }
 
 .location p
@@ -230,18 +227,10 @@ main
 {
   width: 100%;
   margin: 0rem auto;
-  padding: .7em 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.cloudy-icon
-{
-  font-size: 15em;
-  color: var(--neon-white);
-}
-
 
 /* ENDS */
 
@@ -256,8 +245,8 @@ main
   background: var(--box-background);
   width: 100%;
   margin: 1rem auto;
-  padding: 1rem;
   text-align: center;
+  padding: 1rem;
 }
 
 /* WEATHER TITLE */

@@ -1,0 +1,121 @@
+/* Popup.css */
+.popup-overlay 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-content 
+  {
+    background: rgba(0, 0, 0, 1);
+    padding: 2em;
+    border-radius: 10px;
+    /* border: 1px solid aqua; */
+    position: relative;
+    /* top: 30px; */
+    width: 90%;
+    height: 98vh;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: .4em;
+  }
+  
+  .manage-cities
+  {
+    height: 60%;
+    width: 100%;
+    /* background-color: #fff; */
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    border-bottom: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    overflow: auto;
+
+  }
+
+  ul
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+  }
+
+  ul li
+  {
+    list-style: none;
+    color: white;
+    border: 1px solid aqua;
+    padding: 5px 0;
+  }
+
+  .settings
+  {
+    height: 15%;
+    width: 100%;
+    /* background-color: blue; */
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    border-bottom: 1px solid white;
+  }
+
+  .settings button 
+  {
+    background-color: transparent;
+    border: 1px solid aqua;
+    color: aqua;
+    padding: .5em 1em;
+    margin: 0.2em;
+    cursor: pointer;
+  }
+  
+  .settings button.active 
+  {
+    background-color: aqua;
+    color: black;
+  }
+  
+
+  .more
+  {
+    height: 25%;
+    width: 100%;
+    /* background-color: red; */
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+  }
+  .more h3
+  {
+    padding-bottom: 20px;
+  }
+
+  .popup-close 
+  {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 3em;
+    cursor: pointer;
+    transform: rotate(45deg);
+    color: red;
+  }
+  
