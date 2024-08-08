@@ -6,10 +6,8 @@
   --dark-black: #000000;
   --neon-aqua: #00FFFF;
   --neon-white: #FFFFFF;
-  --neon-blue: #1B03A3;
   --border-radius: 10px;
-  --box-background: linear-gradient(45deg, var(--neon-pink), var(--neon-aqua));
-  --box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  --box-background: linear-gradient(40deg, var(--neon-white), var(--neon-aqua), var(--neon-white), var(--neon-aqua),var(--neon-white), var(--neon-white));
 }
 /* ENDS */
 
@@ -37,7 +35,7 @@ body
 /* PARAGRAPH TAG GLOBALLY */
 p
 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--dark-black);
   font-weight: bold;
 }
@@ -48,11 +46,15 @@ p
 /* HEADING 1 GLOBALLY */
 h1
 {
-  font-size: 6rem;
-  color: var(--neon-white);
-  font-weight: 700;
+  font-size: 3rem;
+  color: var(--neon-pink);
+  font-weight: bolder;
+  padding-left: 35px;
 }
 /* ENDS */
+
+
+
 
 
 /* APP COMPONENT STYLING */
@@ -61,14 +63,16 @@ h1
   width: 100%;
   height: 100vh;
   position: relative;
-  /* background-color: rgba(0,0,0,0.85); */
-  background-color: var(--dark-black);
+  background-color: rgba(0,0,0,0.8);
+  /* background-color: var(--dark-black); */
 }
 
 .App:before
 {
   content: '';
-  background: url(/public/e2e22d3f-35cd-4ba3-9aee-77d5e0533353.jpeg);
+  background: url(/public/Summer\ Season\ 🏖🏞.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -78,16 +82,89 @@ h1
 }
 /* ENDS */
 
+/* SEARCH */
+header
+{
+  text-align: start;
+  padding: 1rem;
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.search-icon
+{
+  color: var(--neon-aqua);
+  font-size: 2.5rem;
+}
+
+header input
+{
+  padding: .6rem .5rem;
+  border-radius: 10px;
+  border: 1px solid aqua;
+  background-color: #0000008a;
+  width: 100%;
+  text-align: center;
+  color: var(--neon-white);
+  cursor: pointer;
+}
+
+::placeholder
+{
+  color: var(--neon-aqua);
+}
+
+.hamburger
+{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  /* margin: 0rem auto; */
+  height: 35px;
+  width: 35px;
+  border: none;
+  border-radius: 50%;
+  padding: 4px;
+  animation: glowing 20s infinite, pop-in-out 5s infinite;
+  transition: all .7s ease-in-out;
+}
+
+/* GLOWING BACKGROND */
+@keyframes glowing {
+  0% { background-color: #0000008a;}
+  45% { background-color: rgba(0, 255, 255, 0.331); }
+  90% { background-color: #ff6ec757; }
+}
+/* ENDS */
+
+/* POPING IN OUT BACKROUND */
+@keyframes pop-in-out {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0; }
+}
+
+
+.menu-icon
+{
+  color: var(--neon-aqua);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+/* ENDS */
+
 
 /* MAIN STYLING */
 main
 {
-  max-width: 740px;
+  max-width: 700px;
   height: 90%;
   margin: auto;
   padding: 0 1rem;
-  position: relative;
-  top: 10%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -100,7 +177,7 @@ main
   border-radius: var(--border-radius);
   background: var(--box-background);
   width: 100%;
-  margin: 1rem auto;
+  margin: 0rem auto;
   padding: .4em 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -109,8 +186,8 @@ main
 /* DESCRIPTION INSIDE TOP */
 .description
 {
-  background-color: var(--dark-black);
-  /* background-color: rgba(0,0,0,0.9); */
+  /* background-color: var(--dark-black); */
+  background-color: rgba(0, 0, 0, 0.825);
   padding: .6rem 0;
   text-align: center;
 }
@@ -123,10 +200,50 @@ main
 /* LOCATION INSIDE TOP */
 .location
 {
-  padding: 10px 0 10px 10px;
+  padding: 0 0 0px 10px;
+}
+
+.location p
+{
+  font-size: 1.7rem;
+}
+
+.temperature
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.temperature p
+{
+  font-weight: unset;
+  font-size: 11px;
+  text-align: end;
+  padding-bottom: 10px;
+  padding-right: 5px;
 }
 /* TOP CONTAINER ENDS */
 
+/* MIDDLE CONTAINER */
+.middle
+{
+  width: 100%;
+  margin: 0rem auto;
+  padding: .7em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cloudy-icon
+{
+  font-size: 15em;
+  color: var(--neon-white);
+}
+
+
+/* ENDS */
 
 /* BOTTOM CONTAINER INSIDE MAIN */
 .bottom
@@ -147,8 +264,9 @@ main
 
 span
 {
-  color: var(--neon-white);
+  color: var(--neon-pink);
   font-weight: lighter;
+  font-size: 1rem;
 }
 
 /* MAIN ENDS */
